@@ -50,3 +50,21 @@ vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR>', {
     noremap = true
 })
 
+-- Scrolling
+vim.api.nvim_set_keymap('n', '<C-d>', '10j', {
+    noremap = true,
+    silent = true
+})
+vim.api.nvim_set_keymap('n', '<C-u>', '10k', {
+    noremap = true,
+    silent = true
+})
+vim.api.nvim_set_keymap('v', '<C-d>', '10j', {
+    noremap = true,
+    silent = true
+})
+vim.api.nvim_set_keymap('v', '<C-u>', '10k', {
+    noremap = true,
+    silent = true
+})
+
