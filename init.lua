@@ -55,6 +55,11 @@ vim.api.nvim_set_keymap('v', '<leader>r', 'y/\\V<C-R>=escape(@",\'/\')<CR><CR>Nc
     noremap = true
 })
 
+-- Delete and edit next search result
+vim.api.nvim_set_keymap('n', '<leader>r', 'cgn', {
+  noremap = true,
+  silent = true
+})
 
 -- Clear highlight on esc
 vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR>', {
@@ -96,12 +101,6 @@ vim.api.nvim_set_keymap('v', 'J', '', {
 })
 vim.api.nvim_set_keymap('v', 'K', '', {
   callback = function() move_lines(10, 'k') end,
-  noremap = true,
-  silent = true
-})
-
--- Delete and edit next search result
-vim.api.nvim_set_keymap('n', '<leader>r', 'cgn', {
   noremap = true,
   silent = true
 })
