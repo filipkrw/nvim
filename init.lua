@@ -14,17 +14,18 @@ vim.api.nvim_set_keymap('i', '<C-q>', '<space><esc>ce', {
     noremap = true
 })
 
--- Move between tabs (VS Code)
-vim.api.nvim_set_keymap('n', '<leader>j', 'gT', {})
-vim.api.nvim_set_keymap('n', '<leader>k', 'gt', {})
-vim.api.nvim_set_keymap('v', '<leader>j', 'gT', {})
-vim.api.nvim_set_keymap('v', '<leader>k', 'gt', {})
+vim.api.nvim_set_keymap('n', '<leader>j', 'gh', {});
 
--- Move between tab groups (VS Code)
-vim.api.nvim_set_keymap('n', '<leader>l', '<C-w>l', {})
-vim.api.nvim_set_keymap('n', '<leader>h', '<C-w>h', {})
-vim.api.nvim_set_keymap('v', '<leader>l', '<C-w>l', {})
-vim.api.nvim_set_keymap('v', '<leader>h', '<C-w>h', {})
+-- Move between tabs and tab groups
+vim.api.nvim_set_keymap('n', 'H', 'gT', {});
+vim.api.nvim_set_keymap('n', 'L', 'gt', {});
+vim.api.nvim_set_keymap('n', 'J', '<C-w>h', {});
+vim.api.nvim_set_keymap('n', 'K', '<C-w>l', {});
+
+vim.api.nvim_set_keymap('v', 'H', 'gT', {});
+vim.api.nvim_set_keymap('v', 'L', 'gt', {});
+vim.api.nvim_set_keymap('v', 'J', '<C-w>h', {});
+vim.api.nvim_set_keymap('v', 'K', '<C-w>l', {});
 
 -- Use system clipboard
 vim.opt.clipboard = "unnamedplus"
