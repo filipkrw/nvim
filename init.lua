@@ -3,6 +3,8 @@ require('packer').startup(function(use)
     use 'tpope/vim-surround'
 end)
 
+vscode = require('vscode-neovim')
+
 vim.g.mapleader = ' '
 
 -- Search
@@ -78,7 +80,7 @@ vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR>', {
 })
 
 -- Jump to function body
-vim.api.nvim_set_keymap('n', '<leader>w', '$i<CR><Esc>yyPxa  ', {
+vim.api.nvim_set_keymap('n', '<leader>[', '$i<CR><Esc>yyPxa  ', {
     noremap = true,
     silent = true
 })
@@ -131,6 +133,14 @@ vim.api.nvim_set_keymap('n', '<leader>a;', 'A;<Esc>', {
 
 -- Append {} to the end of the line
 vim.api.nvim_set_keymap('n', '<leader>a[', 'A{}<Esc>', {
+    noremap = true,
+    silent = true
+})
+
+vim.api.nvim_set_keymap('n', '<leader>/', '', {
+    callback = function()
+        vscode.action("search.action.openNewEditor")
+    end,
     noremap = true,
     silent = true
 })
