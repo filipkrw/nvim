@@ -3,8 +3,6 @@ require('packer').startup(function(use)
     use 'tpope/vim-surround'
 end)
 
-vscode = require('vscode-neovim')
-
 vim.g.mapleader = ' '
 
 -- Search
@@ -137,10 +135,23 @@ vim.api.nvim_set_keymap('n', '<leader>a[', 'A{}<Esc>', {
     silent = true
 })
 
-vim.api.nvim_set_keymap('n', '<leader>/', '', {
-    callback = function()
-        vscode.action("search.action.openNewEditor")
-    end,
-    noremap = true,
-    silent = true
-})
+local status, vscode = pcall(require, "vscode-neovim")
+
+-- VS Code global search
+if status then
+    vim.api.nvim_set_keymap('n', '<leader>/', '', {
+        callback = function()
+            vscode.action("search.action.openNewEditor")
+        end,
+        noremap = true,
+        silent = true
+    })
+
+    vim.api.nvim_set_keymap('v', '<leader>/', '', {
+        callback = function()
+            vscode.action("search.action.openNewEditor")
+        end,
+        noremap = true,
+        silent = true
+    })
+end
