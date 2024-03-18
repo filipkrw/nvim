@@ -17,25 +17,20 @@ vim.api.nvim_set_keymap('i', '<C-q>', '<space><esc>ce', {
 vim.api.nvim_set_keymap('n', '<leader>f', 'gh', {});
 
 -- Move between tabs and tab groups
--- vim.api.nvim_set_keymap('n', '<leader>h', 'gT', {});
--- vim.api.nvim_set_keymap('n', '<leader>l', 'gt', {});
--- vim.api.nvim_set_keymap('n', 'H', '<C-w>h', {});
--- vim.api.nvim_set_keymap('n', 'L', '<C-w>l', {});
-
--- vim.api.nvim_set_keymap('v', '<leader>h', 'gT', {});
--- vim.api.nvim_set_keymap('v', '<leader>l', 'gt', {});
--- vim.api.nvim_set_keymap('v', 'H', '<C-w>h', {});
--- vim.api.nvim_set_keymap('v', 'L', '<C-w>l', {});
-
 vim.api.nvim_set_keymap('n', '<C-j>', 'gT', {});
 vim.api.nvim_set_keymap('n', '<C-k>', 'gt', {});
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {});
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {});
 
-vim.api.nvim_set_keymap('v', '<leader>h', 'gT', {});
-vim.api.nvim_set_keymap('v', '<leader>l', 'gt', {});
-vim.api.nvim_set_keymap('v', 'H', '<C-w>h', {});
-vim.api.nvim_set_keymap('v', 'L', '<C-w>l', {});
+vim.api.nvim_set_keymap('v', '<C-j>', 'gT', {});
+vim.api.nvim_set_keymap('v', '<C-k>', 'gt', {});
+vim.api.nvim_set_keymap('v', '<C-h>', '<C-w>h', {});
+vim.api.nvim_set_keymap('v', '<C-l>', '<C-w>l', {});
+
+vim.api.nvim_set_keymap('i', '<C-j>', '<Esc>gT', {});
+vim.api.nvim_set_keymap('i', '<C-k>', '<Esc>gt', {});
+vim.api.nvim_set_keymap('i', '<C-h>', '<Esc><C-w>h', {});
+vim.api.nvim_set_keymap('i', '<C-l>', '<Esc><C-w>l', {})
 
 -- Use system clipboard
 vim.opt.clipboard = "unnamedplus"
