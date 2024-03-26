@@ -149,4 +149,25 @@ if status then
         noremap = true,
         silent = true
     })
+
+    vim.api.nvim_set_keymap('n', ']d', '', {
+        callback = function()
+            vscode.action("editor.action.marker.next")
+        end,
+        noremap = true,
+        silent = true
+    })
+
+    vim.api.nvim_set_keymap('n', '[d', '', {
+        callback = function()
+            vscode.action("editor.action.marker.prev")
+        end,
+        noremap = true,
+        silent = true
+    })
 end
+
+-- Surround with brackets
+vim.api.nvim_set_keymap("v", "(", "S)", {})
+vim.api.nvim_set_keymap("v", "{", "S}", {})
+vim.api.nvim_set_keymap("v", "[", "S]", {})
