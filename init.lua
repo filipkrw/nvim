@@ -3,6 +3,11 @@ require('packer').startup(function(use)
     use 'tpope/vim-surround'
 end)
 
+-- Surround with brackets
+vim.api.nvim_set_keymap("v", "(", "S)", {})
+vim.api.nvim_set_keymap("v", "{", "S}", {})
+vim.api.nvim_set_keymap("v", "[", "S]", {})
+
 vim.g.mapleader = ' '
 
 -- Search
@@ -73,7 +78,7 @@ vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR>', {
 })
 
 -- Jump to function body
-vim.api.nvim_set_keymap('n', '<leader>[', '$i<CR><Esc>yyPxa  ', {
+vim.api.nvim_set_keymap('n', '<leader>[', '$i<CR><Esc>V"zy"zP"zxa  ', {
     noremap = true,
     silent = true
 })
@@ -167,7 +172,3 @@ if status then
     })
 end
 
--- Surround with brackets
-vim.api.nvim_set_keymap("v", "(", "S)", {})
-vim.api.nvim_set_keymap("v", "{", "S}", {})
-vim.api.nvim_set_keymap("v", "[", "S]", {})
