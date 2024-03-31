@@ -139,7 +139,7 @@ vim.api.nvim_set_keymap('n', '<leader>[', 'A{}<Esc>', {
     silent = true
 })
 
--- Append command
+-- Append
 vim.api.nvim_set_keymap('n', '<leader>,', 'A,<Esc>', {
     noremap = true,
     silent = true
@@ -149,9 +149,19 @@ vim.api.nvim_set_keymap('n', '<leader>a,', 'A,<CR><Esc>a', {
     silent = true
 })
 
+-- Center screen
+vim.api.nvim_set_keymap('n', '<leader>z', 'zz', {
+    noremap = true,
+    silent = true
+})
+vim.api.nvim_set_keymap('v', '<leader>z', 'zz', {
+    noremap = true,
+    silent = true
+})
+
 local status, vscode = pcall(require, "vscode-neovim")
 
--- VS Code global search
+-- VS Code
 if status then
     vim.api.nvim_set_keymap('n', '<leader>/', '', {
         callback = function()
