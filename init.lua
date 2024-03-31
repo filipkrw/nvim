@@ -78,7 +78,7 @@ vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR>', {
 })
 
 -- Jump to function body
-vim.api.nvim_set_keymap('n', '<leader>[', '$i<CR><Esc>V"zy"zP"zxa  ', {
+vim.api.nvim_set_keymap('n', '<leader>]', '$i<CR><Esc>V"zy"zP"zxa  ', {
     noremap = true,
     silent = true
 })
@@ -124,13 +124,27 @@ vim.api.nvim_set_keymap('v', 'K', '', {
 })
 
 -- Append ; to the end of the line
-vim.api.nvim_set_keymap('n', '<leader>a;', 'A;<Esc>', {
+vim.api.nvim_set_keymap('n', '<leader>;', 'A;<Esc>', {
+    noremap = true,
+    silent = true
+})
+vim.api.nvim_set_keymap('n', '<leader>:', 'A:<Esc>', {
     noremap = true,
     silent = true
 })
 
 -- Append {} to the end of the line
-vim.api.nvim_set_keymap('n', '<leader>a[', 'A{}<Esc>', {
+vim.api.nvim_set_keymap('n', '<leader>[', 'A{}<Esc>', {
+    noremap = true,
+    silent = true
+})
+
+-- Append command
+vim.api.nvim_set_keymap('n', '<leader>,', 'A,<Esc>', {
+    noremap = true,
+    silent = true
+})
+vim.api.nvim_set_keymap('n', '<leader>a,', 'A,<CR><Esc>a', {
     noremap = true,
     silent = true
 })
