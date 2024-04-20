@@ -33,9 +33,26 @@ vim.api.nvim_set_keymap('v', '<C-h>', '<C-w>h', {});
 vim.api.nvim_set_keymap('v', '<C-l>', '<C-w>l', {});
 
 vim.api.nvim_set_keymap('i', '<C-j>', '<Esc>gT', {});
-vim.api.nvim_set_keymap('i', '<C-k>', '<Esc>gt', {});
+vim.api.nvim_set_keymap('i', '<C-k>', '<Esc>gt', {}); 
 vim.api.nvim_set_keymap('i', '<C-h>', '<Esc><C-w>h', {});
 vim.api.nvim_set_keymap('i', '<C-l>', '<Esc><C-w>l', {})
+
+-- Move to then start and end of line
+vim.api.nvim_set_keymap('n', '<leader>h', '^', {});
+vim.api.nvim_set_keymap('n', '<leader>l', '$', {});
+
+-- Add new line below
+vim.keymap.set('n', '<CR>', function()
+    local line = vim.fn.line(".")
+    local count = vim.v.count1
+    vim.fn.append(line, vim.fn["repeat"]({""}, count))
+end, { silent = true })
+
+-- Remap J (used for scrolling)
+vim.api.nvim_set_keymap('n', '<leader><CR>', 'J', {
+    noremap = true,
+    silent = true
+})
 
 -- Use system clipboard
 vim.opt.clipboard = "unnamedplus"
@@ -79,12 +96,6 @@ vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR>', {
 
 -- Jump to function body
 vim.api.nvim_set_keymap('n', '<leader>]', '$i<CR><Esc>V"zy"zP"zxa  ', {
-    noremap = true,
-    silent = true
-})
-
--- Remap J (used for scrolling)
-vim.api.nvim_set_keymap('n', '<leader>j', 'J', {
     noremap = true,
     silent = true
 })
