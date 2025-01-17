@@ -14,6 +14,14 @@ vim.g.mapleader = ' '
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- Swap p and P commands
+vim.api.nvim_set_keymap('x', 'p', 'P', {
+    noremap = true
+})
+vim.api.nvim_set_keymap('x', 'P', 'p', {
+    noremap = true
+})
+
 -- Delete word in front in insert mode 
 vim.api.nvim_set_keymap('i', '<C-q>', '<space><esc>ce', {
     noremap = true
@@ -33,7 +41,7 @@ vim.api.nvim_set_keymap('v', '<C-h>', '<C-w>h', {});
 vim.api.nvim_set_keymap('v', '<C-l>', '<C-w>l', {});
 
 vim.api.nvim_set_keymap('i', '<C-j>', '<Esc>gT', {});
-vim.api.nvim_set_keymap('i', '<C-k>', '<Esc>gt', {}); 
+vim.api.nvim_set_keymap('i', '<C-k>', '<Esc>gt', {});
 vim.api.nvim_set_keymap('i', '<C-h>', '<Esc><C-w>h', {});
 vim.api.nvim_set_keymap('i', '<C-l>', '<Esc><C-w>l', {})
 
@@ -46,7 +54,9 @@ vim.keymap.set('n', '<CR>', function()
     local line = vim.fn.line(".")
     local count = vim.v.count1
     vim.fn.append(line, vim.fn["repeat"]({""}, count))
-end, { silent = true })
+end, {
+    silent = true
+})
 
 -- Remap J (used for scrolling)
 vim.api.nvim_set_keymap('n', '<leader><CR>', 'J', {
@@ -170,10 +180,10 @@ vim.api.nvim_set_keymap('v', '<leader>z', 'zz', {
     silent = true
 })
 
-local status, vscode = pcall(require, "vscode-neovim")
+local is_vscode, vscode = pcall(require, "vscode-neovim")
 
 -- VS Code
-if status then
+if is_vscode then
     vim.api.nvim_set_keymap('n', '<leader>/', '', {
         callback = function()
             vscode.action("search.action.openNewEditor")
@@ -205,5 +215,32 @@ if status then
         noremap = true,
         silent = true
     })
+
+    vim.api.nvim_set_keymap('n', '<leader>i', '', {
+        callback = function()
+            vscode.action("editor.action.sourceAction")
+        end,
+        noremap = true,
+        silent = true
+    })
 end
 
+-- Insert mode movements
+vim.api.nvim_set_keymap('i', '<C-l>', '<C-o>a', {
+    noremap = true
+})
+vim.api.nvim_set_keymap('i', '<C-k>', '<C-o>k', {
+    noremap = true
+})
+vim.api.nvim_set_keymap('i', '<C-j>', '<C-o>j', {
+    noremap = true
+})
+vim.api.nvim_set_keymap('i', '<C-h>', '<C-o>h', {
+    noremap = true
+})
+vim.api.nvim_set_keymap('i', '<C-w>', '<C-o>w', {
+    noremap = true
+})
+vim.api.nvim_set_keymap('i', '<C-b>', '<C-o>b', {
+    noremap = true
+})
