@@ -1,6 +1,8 @@
+-- Register pugins. To install them, run :PackerSync command
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'tpope/vim-surround'
+    use 'michaeljsmith/vim-indent-object'
 end)
 
 -- Surround with brackets
